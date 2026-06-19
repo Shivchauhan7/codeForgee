@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeForge - Coding Practice Platform</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="navbar">
+    <div class="logo">&lt;CodeForge/&gt;</div>
+    <div class="nav-links">
+      <button class="nav-btn active" onclick="showPage('problems')">Problems</button>
+      <button class="nav-btn" onclick="showPage('leaderboard')">Leaderboard</button>
+      <button class="nav-btn" onclick="showPage('profile')">Profile</button>
+    </div>
+  </nav>
+
+  <!-- ============ PROBLEMS PAGE ============ -->
+  <section id="problems" class="page active">
+    <div class="container">
+      <h1>Problem List</h1>
+      <p class="subtitle">Pick a problem and start solving</p>
+
+      <div class="filters">
+        <input type="text" id="searchBox" placeholder="Search problem..." onkeyup="renderProblems()">
+        <select id="difficultyFilter" onchange="renderProblems()">
+          <option value="all">All Difficulty</option>
+          <option value="Easy">Easy</option>
+          <option value="Medium">Medium</option>
+          <option value="Hard">Hard</option>
+        </select>
+      </div>
+
+      <table class="problem-table">
+        <thead>
+          <tr>
+            <th>Status</th>
+            <th>Title</th>
+            <th>Difficulty</th>
+            <th>Topic</th>
+          </tr>
+        </thead>
+        <tbody id="problemTableBody">
+          <!-- problems get added here by JS -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ EDITOR PAGE (opens when a problem is clicked) ============ -->
+  <section id="editor" class="page">
+    <div class="container">
+      <button class="back-btn" onclick="showPage('problems')">&larr; Back to Problems</button>
+
+      <div class="editor-layout">
+
+        <!-- Left side: Problem statement -->
+        <div class="problem-box">
+          <h2 id="editorTitle">Problem Title</h2>
+          <span id="editorDifficulty" class="badge">Easy</span>
+          <p id="editorDescription" class="problem-desc"></p>
+
+          <h4>Example</h4>
+          <div class="example-box">
+            <p><b>Input:</b> <span id="exampleInput"></span></p>
+            <p><b>Output:</b> <span id="exampleOutput"></span></p>
+          </div>
+        </div>
+
+        <!-- Right side: Code editor -->
+        <div class="code-box">
+          <div class="code-toolbar">
+            <select id="languageSelect">
+              <option value="javascript">JavaScript</option>
+              <option value="python">Python</option>
+              <option value="java">Java</option>
+              <option value="cpp">C++</option>
+            </select>
+            <button class="btn" onclick="runCode()">Run</button>
+            <button class="btn btn-primary" onclick="submitCode()">Submit</button>
+          </div>
+
+          <textarea id="codeArea" spellcheck="false"></textarea>
+
+          <div class="output-box">
+            <h4>Output</h4>
+            <div id="outputResult">Click "Run" to test your code.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LEADERBOARD PAGE ============ -->
+  <section id="leaderboard" class="page">
+    <div class="container">
+      <h1>Leaderboard</h1>
+      <p class="subtitle">Top students by score</p>
+
+      <table class="problem-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Username</th>
+            <th>Problems Solved</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboardTableBody">
+          <!-- leaderboard rows added here by JS -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ PROFILE PAGE ============ -->
+  <section id="profile" class="page">
+    <div class="container">
+      <h1>My Profile</h1>
+
+      <div class="profile-card">
+        <div class="avatar">RK</div>
+        <div>
+          <h2>rohan_k</h2>
+          <p class="subtitle">Student</p>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number" id="solvedCount">0</div>
+          <div class="stat-label">Problems Solved</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">320</div>
+          <div class="stat-label">Total Score</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">4</div>
+          <div class="stat-label">Day Streak</div>
+        </div>
+      </div>
+
+      <h3>Recently Solved</h3>
+      <ul id="solvedList" class="solved-list">
+        <!-- solved problems added here by JS -->
+      </ul>
+    </div>
+  </section>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

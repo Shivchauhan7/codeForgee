@@ -1,0 +1,368 @@
+/* ====== Basic reset ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #1e1e2f;
+  color: #e6e6e6;
+}
+
+/* ====== Navbar ====== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #252538;
+  padding: 15px 30px;
+  border-bottom: 2px solid #3a3a55;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #f5c518;
+}
+
+.nav-links {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: #cccccc;
+  font-size: 15px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.nav-btn:hover {
+  background-color: #3a3a55;
+}
+
+.nav-btn.active {
+  background-color: #f5c518;
+  color: #1e1e2f;
+  font-weight: bold;
+}
+
+/* ====== Page sections ====== */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+h1 {
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #aaaaaa;
+  margin-bottom: 20px;
+}
+
+/* ====== Filters ====== */
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filters input,
+.filters select {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #3a3a55;
+  background-color: #2a2a40;
+  color: #e6e6e6;
+  font-size: 14px;
+}
+
+.filters input {
+  flex: 1;
+}
+
+/* ====== Problem table ====== */
+.problem-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #252538;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.problem-table th {
+  text-align: left;
+  background-color: #2a2a40;
+  padding: 12px 15px;
+  font-size: 13px;
+  color: #aaaaaa;
+  text-transform: uppercase;
+}
+
+.problem-table td {
+  padding: 12px 15px;
+  border-top: 1px solid #3a3a55;
+  font-size: 14px;
+}
+
+.problem-table tbody tr:hover {
+  background-color: #2f2f48;
+  cursor: pointer;
+}
+
+/* ====== Badges for difficulty ====== */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.badge-Easy {
+  background-color: #1f5d3a;
+  color: #6fdc8c;
+}
+
+.badge-Medium {
+  background-color: #5d4a1f;
+  color: #f5c518;
+}
+
+.badge-Hard {
+  background-color: #5d1f1f;
+  color: #f55a5a;
+}
+
+.solved-icon {
+  color: #6fdc8c;
+  font-weight: bold;
+}
+
+/* ====== Buttons ====== */
+.btn {
+  padding: 8px 18px;
+  border: 1px solid #3a3a55;
+  background-color: #2a2a40;
+  color: #e6e6e6;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #3a3a55;
+}
+
+.btn-primary {
+  background-color: #f5c518;
+  color: #1e1e2f;
+  border: none;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: #ffd540;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #f5c518;
+  font-size: 14px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+/* ====== Editor page layout ====== */
+.editor-layout {
+  display: flex;
+  gap: 20px;
+}
+
+.problem-box {
+  flex: 1;
+  background-color: #252538;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.problem-desc {
+  margin: 15px 0;
+  color: #cccccc;
+  line-height: 1.5;
+}
+
+.example-box {
+  background-color: #2a2a40;
+  padding: 12px 15px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.code-box {
+  flex: 1;
+  background-color: #252538;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.code-toolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.code-toolbar select {
+  padding: 7px 10px;
+  border-radius: 5px;
+  border: 1px solid #3a3a55;
+  background-color: #2a2a40;
+  color: #e6e6e6;
+}
+
+#codeArea {
+  width: 100%;
+  height: 250px;
+  background-color: #1a1a28;
+  color: #e6e6e6;
+  font-family: 'Consolas', monospace;
+  font-size: 14px;
+  border: 1px solid #3a3a55;
+  border-radius: 6px;
+  padding: 12px;
+  resize: vertical;
+}
+
+.output-box {
+  margin-top: 15px;
+  background-color: #1a1a28;
+  border-radius: 6px;
+  padding: 12px 15px;
+  min-height: 60px;
+}
+
+.output-box h4 {
+  font-size: 13px;
+  color: #aaaaaa;
+  margin-bottom: 8px;
+}
+
+#outputResult {
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.output-pass {
+  color: #6fdc8c;
+}
+
+.output-fail {
+  color: #f55a5a;
+}
+
+/* ====== Leaderboard rank colors ====== */
+.rank-1 { color: #f5c518; font-weight: bold; }
+.rank-2 { color: #cccccc; font-weight: bold; }
+.rank-3 { color: #cd7f32; font-weight: bold; }
+
+/* ====== Profile page ====== */
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f5c518;
+  color: #1e1e2f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.stats-grid {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  flex: 1;
+  background-color: #252538;
+  padding: 18px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 26px;
+  font-weight: bold;
+  color: #f5c518;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: #aaaaaa;
+  margin-top: 5px;
+}
+
+.solved-list {
+  list-style: none;
+  background-color: #252538;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.solved-list li {
+  padding: 12px 18px;
+  border-top: 1px solid #3a3a55;
+  display: flex;
+  justify-content: space-between;
+}
+
+.solved-list li:first-child {
+  border-top: none;
+}
+
+/* ====== Responsive for tablet/mobile ====== */
+@media (max-width: 768px) {
+  .editor-layout {
+    flex-direction: column;
+  }
+
+  .stats-grid {
+    flex-direction: column;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
